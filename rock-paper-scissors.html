@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    function computerPlay(playerS){
+        let choices = ["rock", "paper", "scissors"];
+        let y;
+        playerS = playerS.toLowerCase();
+        for(i=0; i<3; i++){
+            if(choices[i] === playerS){
+                y = i;
+            }
+        }
+        let x = Math.floor( Math.random() * 3 );
+        while(x===y){
+            x = Math.floor( Math.random() * 3 );
+        }
+        let computerS = choices[x];
+        return computerS;        
+
+    }
+
+    function playRound(playerSelection, computerSelection){
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+        if(computerSelection!==playerSelection){
+        if(computerSelection==="paper" && playerSelection==="rock"){
+            return "You lose. Paper beats Rock."
+        }
+        else if(computerSelection==="rock" && playerSelection==="paper"){
+            return "You win!. Paper beats Rock."
+        }
+        else if(computerSelection==="rock" && playerSelection==="scissors"){
+            return "You lose. Rock beats Scissors"
+        }
+        else if(computerSelection==="scissors" && playerSelection==="rock"){
+            return "You win!. Rock beats Scissors."
+        }
+        else if(computerSelection==="scissors" && playerSelection==="paper"){
+            return "You lose. Scissors beats Paper."
+        }
+        else if(computerSelection==="paper" && playerSelection==="scissors"){
+            return "You win!. Scissors beats Paper."
+        }
+    }
+    }
+
+    function game(){
+        let computer = 0;
+        let user = 0;
+        for(let i=0; i<5; i++){
+            userInput = prompt("What do you wanna pick?");
+            computerInput = computerPlay(userInput);
+            result = playRound(userInput, computerInput);
+            if(result[6]==="n"){
+                user++;
+            } else if(result[6]==="s"){
+                computer++;
+            }
+            console.log(result);
+            console.log("Your Score: "+user);
+            console.log("Computer's Score: "+computer);
+        }
+        if(computer==3){
+            console.log("After 5 rounds, you lose. Better luck next time.")
+        } else{
+            console.log("After 5 rounds, .............You win!");
+        }
+    }
+    game();
+  </script>
+</body>
+</html>
