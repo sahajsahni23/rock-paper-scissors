@@ -1,1 +1,1 @@
-# rock-paper-scissors
+# Rock-Paper-Scissors game. Open Console in Developer tools to see the output. UI in progress. Whatever will be your choice, computer won't make the same choice. That means in each round no ties are possible.
