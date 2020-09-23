@@ -5,74 +5,47 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
-  <script>
-    // Your JavaScript goes here!
-    function computerPlay(playerS){
-        let choices = ["rock", "paper", "scissors"];
-        let y;
-        playerS = playerS.toLowerCase();
-        for(i=0; i<3; i++){
-            if(choices[i] === playerS){
-                y = i;
-            }
-        }
-        let x = Math.floor( Math.random() * 3 );
-        while(x===y){
-            x = Math.floor( Math.random() * 3 );
-        }
-        let computerS = choices[x];
-        return computerS;        
-
-    }
-
-    function playRound(playerSelection, computerSelection){
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = computerSelection.toLowerCase();
-        if(computerSelection!==playerSelection){
-        if(computerSelection==="paper" && playerSelection==="rock"){
-            return "You lose. Paper beats Rock."
-        }
-        else if(computerSelection==="rock" && playerSelection==="paper"){
-            return "You win!. Paper beats Rock."
-        }
-        else if(computerSelection==="rock" && playerSelection==="scissors"){
-            return "You lose. Rock beats Scissors"
-        }
-        else if(computerSelection==="scissors" && playerSelection==="rock"){
-            return "You win!. Rock beats Scissors."
-        }
-        else if(computerSelection==="scissors" && playerSelection==="paper"){
-            return "You lose. Scissors beats Paper."
-        }
-        else if(computerSelection==="paper" && playerSelection==="scissors"){
-            return "You win!. Scissors beats Paper."
-        }
-    }
-    }
-
-    function game(){
-        let computer = 0;
-        let user = 0;
-        for(let i=0; i<5; i++){
-            userInput = prompt("What do you wanna pick?");
-            computerInput = computerPlay(userInput);
-            result = playRound(userInput, computerInput);
-            if(result[6]==="n"){
-                user++;
-            } else if(result[6]==="s"){
-                computer++;
-            }
-            console.log(result);
-            console.log("Your Score: "+user);
-            console.log("Computer's Score: "+computer);
-        }
-        if(computer==3){
-            console.log("After 5 rounds, you lose. Better luck next time.")
-        } else{
-            console.log("After 5 rounds, .............You win!");
-        }
-    }
-    game();
-  </script>
+    <div class="header">
+        <h2>Rock Paper Scissors</h2>
+      </div>
+      
+      <div class="row">
+        <button class="button">Rock</button>
+        <button class="button">Paper</button>
+        <button class="button">Scissors</button>
+      </div>
+    
+      <div class="row">
+        <div class="round">gameMessage</div>
+      </div>
+      
+    
+      <div class="row">
+        <div id = "userStatus" class="gameMessage">gameMessage</div>
+        <div class="gameMessage">V</div>
+        <div id = "pcStatus" class="gameMessage">gameMessage</div>
+      </div>
+    
+      <div class="row">
+        <div id="roundResult" class="gameMessage">Round results</div>
+      </div>
+    
+      <div class="row">
+        <div id = "userPoints" class="gameMessage">gameMessage</div>
+        <div class="gameMessage"></div>
+        <div id = "pcPoints" class="gameMessage">gameMessage</div>
+      </div>
+    
+      <div class='row'>
+        <div id="game" class="gameMessage"> </div>
+      </div>
+    
+      
+      <div class="footer">
+        <p>Odin Project: Rock Paper Scissors</p>
+      </div>
+      
+    
+      <script src = "RockPaperScissors.js"></script>
 </body>
 </html>
